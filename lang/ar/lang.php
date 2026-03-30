@@ -95,7 +95,7 @@ return [
     'city_example'=>'الرياض',
     'map_location'=>'الموقع علي الخريطة',
     'legal_confirm'=>'الموافقة على الشروط و األحكام',
-    'logo_attach'=>'إرفاق اللوجو ',
+    'logo_attach'=>'إرفاق شعار المدرسة ',
     'owner_id_attach'=>'إرفاق هوية المالك ',
     'commercial_attach'=>'إرفاق صورة السجل التجاري',
     'Sign_In_to_edu'=>'تسجيل الدخول الي لوحة التحكم',
@@ -773,5 +773,6 @@ return [
 'atencncNot'=>'اشعار غياب',
 'callgradiant'=>'استدعاء ولي امر',
 'schoolId'=>'رقم المدرسة',
-'tenants'=>'المستفيدين'
+'tenants'=>'المستفيدين',
+'Manger_Name'=>'اسم المدير',
 ];

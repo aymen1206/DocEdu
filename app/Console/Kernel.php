@@ -31,52 +31,7 @@ class Kernel extends ConsoleKernel
     {
         // $schedule->command('inspire')->hourly();
 
-        
-
-     $schedule->call(function () {
-        
-        //get last payment with autrized status 
-        $tabby_config= Tabbyconfig::query()->first();
-        $Resp = Http::withHeaders([
-            'Authorization' => "Bearer ".$tabby_config->secretKeyToken,
-            'Content-Type' => 'application/json' 
-        ])->get('https://api.tabby.ai/api/v2/payments');
-                    
-        $response=$Resp->json();
-        $count=0;
-        $count=count($Resp['payments']);
-
-
-            for($x = 0; $x <= $count; $x++) {
-
-                        $Payment_id=$response['payments'][$x]['id'];
-                        $status=$response['payments'][$x]['status'];
-                        $Order_id=$response['payments'][$x]['order']['reference_id'];            
-                        $Payment_amount=$response['payments'][$x]['amount'];
-
-
-                        if ($status=='AUTHORIZED'){
-
-                        $tabby_config= Tabbyconfig::query()->first();
-
-                        $dt = Http::withHeaders([
-                        'Authorization' => "Bearer ".$tabby_config->secretKeyToken,
-                        'Content-Type' => 'application/json' 
-                        ])->post('https://api.tabby.ai/api/v1/payments/'.$Payment_id.'/captures',
-                        [
-                            "amount"=> $Payment_amount
-                        ]
-                        );
-
-                        $Captured=$dt->json();
-
-                       if($Captured['status']=='CLOSED'){
-                        app(HomeController::class)->tabbyHandleCapturedPayments($Order_id,$Payment_id);
-                        }
-                        }      
-
-            }                 
-        })->everyFiveMinutes();
+       
     }
 
     /**

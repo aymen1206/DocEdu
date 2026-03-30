@@ -741,4 +741,5 @@ return [
 'callgradiant'=>'Parent Call Notice',
 'schoolId'=>'School ID',
 'tenants'=>'Tenants',
+'Manger_Name'=>'Manager Name',
 ];

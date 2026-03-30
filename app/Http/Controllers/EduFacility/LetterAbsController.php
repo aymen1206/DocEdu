@@ -10,6 +10,10 @@ use PhpOffice\PhpWord\IOFactory;
 
 class LetterAbsController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('edu_facility.auth:edu_facility');
+    }
     public function form()
     {
         return view('edu-facility.abs.form'); // اختياري: نموذج يدخل المستخدم فيه النص
@@ -34,8 +38,10 @@ class LetterAbsController extends Controller
             'apsdate' => 'nullable|string',            
         ]);
        
+        $Logo = auth()->guard('edu_facility')->user()->logo;
+        $mang = auth()->guard('edu_facility')->user()->Manger_Name;
         // نستخدم Blade لعمل HTML ثم نحوله إلى PDF
-        $html = view('edu-facility.abs.pdf', compact('data'))->render();
+        $html = view('edu-facility.abs.pdf', compact('data','Logo','mang'))->render();
 
         $pdf = PDF::loadHTML($html);
         // ضبط اسم الملف
@@ -50,15 +56,18 @@ class LetterAbsController extends Controller
         ]);
 
         $parentName = $data['name']  ;
-        $content = trim($data['content'] ?? '');
+        $content = trim($data['content'] ?? '');        
+        $mang = auth()->guard('edu_facility')->user()->Manger_Name;
         $schoolname = $data['schoolname']; // يمكنك جلب اسم المدرسة من قاعدة البيانات أو من بيانات المستخدم
         if ($content === '') {
-            $content = ",السلام عليكم ورحمة الله وبركاته\n\n   نود إبلاغكم بأنه بناءً على المتابعة التعليمية لسلوك وأداء الطالب/ة {$parentName} ، فإن المدرسة بحاجة إلى حضور ولي أمره  في أقرب وقت ممكن لمناقشة الأمر مع إدارة المدرسة \n.وتفضلوا بقبول فائق الاحترام والتقدير\n ,مع خالص الشكر والتقدير\n إدارة {$schoolname}";
+            $content = ",السلام عليكم ورحمة الله وبركاته\n\n   نود إبلاغكم بأنه بناءً على المتابعة التعليمية لسلوك وأداء الطالب/ة {$parentName} ، فإن المدرسة بحاجة إلى حضور ولي أمره  في أقرب وقت ممكن لمناقشة الأمر مع إدارة المدرسة \n.وتفضلوا بقبول فائق الاحترام والتقدير\n ,مع خالص الشكر والتقدير\n إدارة {$schoolname},\n مدير المدرسة {$mang}";
         }
 
         $phpWord = new PhpWord();
         $section = $phpWord->addSection();
-        $section->addImage(public_path('assets/images/schoollogo.png'), // مسار الصورة
+        
+        $Logo = auth()->guard('edu_facility')->user()->logo;
+        $section->addImage(public_path($Logo), // مسار الصورة
         [
             'width' => 50,     // العرض بالبكسل
             'height' => 50,    // الارتفاع بالبكسل

@@ -58,17 +58,6 @@ class RouteServiceProvider extends ServiceProvider
                 ->namespace('App\Http\Controllers\EduFacility')
                 ->group(base_path('routes/edu-facility.php'));
 
-            Route::prefix(LaravelLocalization::setLocale().'/student')
-                ->as('student.')
-                ->middleware('web','localeSessionRedirect', 'localizationRedirect', 'localeViewPath')
-                ->namespace('App\Http\Controllers\Student')
-                ->group(base_path('routes/student.php'));
-
-            Route::prefix('admin')
-                ->as('admin.')
-                ->middleware('web')
-                ->namespace('App\Http\Controllers\Admin')
-                ->group(base_path('routes/admin.php'));
         });
     }
 

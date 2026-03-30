@@ -21,6 +21,8 @@
         $bodyP6 = " بسبب الغياب في أقرب وقت ممكن وذلك حرصًا ";
         $bodyP7 = " على مستواه الدراسي.";
            
+        $Manname = "مدير المدرسة ".$mang;
+           
         $bodyText1 = $Arabic->utf8Glyphs($bodyP1);        
         $bodyText2 = $Arabic->utf8Glyphs($bodyP2);    
         $bodyText3 = $Arabic->utf8Glyphs($bodyP3);  
@@ -28,6 +30,7 @@
         $bodyText5 = $Arabic->utf8Glyphs($bodyP5);
         $bodyText6 = $Arabic->utf8Glyphs($bodyP6);
         $bodyText7 = $Arabic->utf8Glyphs($bodyP7);
+        $Managname = $Arabic->utf8Glyphs($Manname);
 
 @endphp 
 <head>
@@ -49,7 +52,7 @@
     <div class="header">
         
         <p>
-           <img src="{{ public_path('assets/images/schoollogo.png') }}" width="50" height="50" >  
+           <img src="{{ public_path($Logo) }}" width="50" height="50" >  
         </p>
         <div class="school-name">{{$Schoolname}}</div>
         <div class="letter-title">{{$title}}</div>
@@ -69,6 +72,7 @@
     <div class="signature">
         <p>{{$closing}}</p>
         <p>{{$signature}}</p>
+        <p>{{$Managname}}</p>
     </div>
 </body>
 </html>

@@ -15,7 +15,7 @@
                 </li>
                 <li>/</li>
                 <li>
-                    <a href="{{url('/edu-facility/messages')}}" class="text-blue-600 hover:underline">
+                    <a href="{{url('/edu-facility/ParentCallNotice')}}" class="text-blue-600 hover:underline">
                         @lang('lang.callgradiant')
                     </a>
                 </li>

@@ -47,10 +47,7 @@
         <button class="md:hidden text-gray-500 focus:outline-none">
             <i class="fas fa-bars"></i>
         </button>
-        <div class="flex items-center space-x-3 rtl:space-x-reverse">
-            <img src="{{asset('assets/images/schoollogo.png')}}" alt="Edora Logo" class="h-10 w-auto block dark:hidden" />
-            <img src="{{asset('assets/images/schoollogo.png')}}" alt="Edora Logo" class="h-10 w-auto hidden dark:block" />
-        </div>
+        
     </div>
 
     <h1>{{$schoolname}}</h1>

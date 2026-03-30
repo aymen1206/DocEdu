@@ -56,11 +56,7 @@ class Kernel extends HttpKernel
      *
      * @var array
      */
-    protected $routeMiddleware = [   
-         'student.auth' => \App\Http\Middleware\RedirectIfNotStudent::class,
-        'student.guest' => \App\Http\Middleware\RedirectIfStudent::class,
-        // 'student.verified' => \App\Http\Middleware\EnsureStudentEmailIsVerified::class,
-        // 'student.password.confirm' => \App\Http\Middleware\RequireStudentPassword::class,
+    protected $routeMiddleware = [     
         'edu_facility.auth' => \App\Http\Middleware\RedirectIfNotEduFacility::class,
         'edu_facility.guest' => \App\Http\Middleware\RedirectIfEduFacility::class,
         // 'edu_facility.verified' => \App\Http\Middleware\EnsureEduFacilityEmailIsVerified::class,
@@ -69,10 +65,6 @@ class Kernel extends HttpKernel
         'edu.guest' => \App\Http\Middleware\RedirectIfEdu::class,
         // 'edu.verified' => \App\Http\Middleware\EnsureEduEmailIsVerified::class,
         // 'edu.password.confirm' => \App\Http\Middleware\RequireEduPassword::class,
-        'admin.auth' => \App\Http\Middleware\RedirectIfNotAdmin::class,
-        'admin.guest' => \App\Http\Middleware\RedirectIfAdmin::class,
-        // 'admin.verified' => \App\Http\Middleware\EnsureAdminEmailIsVerified::class,
-        // 'admin.password.confirm' => \App\Http\Middleware\RequireAdminPassword::class,
         'auth' => \App\Http\Middleware\Authenticate::class,
         'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
         'cache.headers' => \Illuminate\Http\Middleware\SetCacheHeaders::class,
