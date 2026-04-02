@@ -19,8 +19,7 @@
         $bodyP2e=" فإن المدرسة بحاجة إلى ";          
         $bodyP2c = "حضور ولي أمره  في أقرب وقت ممكن";          
         $bodyP2d = " لمناقشة الأمر مع إدارة المدرسة ";                    
-        $bodyP3 = "وتفضلوا بقبول فائق الاحترام والتقدير.";             
-        $Manname = "مدير المدرسة ".$mang;      
+        $bodyP3 = "وتفضلوا بقبول فائق الاحترام والتقدير.";       
         $bodyText1 = $Arabic->utf8Glyphs($bodyP1);
         $bodyText2a = $Arabic->utf8Glyphs($bodyP2a);   
         $bodyText2b = $Arabic->utf8Glyphs($bodyP2b);   
@@ -28,7 +27,6 @@
         $bodyText2d = $Arabic->utf8Glyphs($bodyP2d); 
         $bodyText2e = $Arabic->utf8Glyphs($bodyP2e);        
         $bodyText3 = $Arabic->utf8Glyphs($bodyP3);
-        $Managname = $Arabic->utf8Glyphs($Manname);
 
 @endphp
 <html lang="ar" dir="rtl">
@@ -51,7 +49,7 @@
     <div class="header">
         
         <p>
-           <img src="{{ public_path($Logo)  }}" width="50" height="50" >  
+           <img src="{{ public_path('assets/images/schoollogo.png') }}" width="50" height="50" >  
         </p>
         <div class="school-name">{{$Schoolname}}</div>
         <div class="letter-title">{{$title}}</div>
@@ -70,7 +68,6 @@
     <div class="signature">
         <p>{{$closing}}</p>
         <p>{{$signature}}</p>
-        <p>{{$Managname}}</p>
     </div>
 </body>
 </html>

@@ -31,6 +31,14 @@
                             <i class="fa-solid fa-pen-to-square mx-3"></i>
                             {{__('lang.atencncNot')}}
                         </a>
+
+
+                        <!-- APPRECIATION -->
+                        <a href="{{url('edu-facility/APPRECIATION')}}"
+                        class="flex items-center w-full px-4 py-2 text-sm font-medium rounded-md hover:bg-blue-700 text-white">
+                            <i class="fa-solid fa-pen-to-square mx-3"></i>
+                            {{__('lang.CertAPPRECIA')}}
+                        </a>
                     @endif
                 </nav>
 

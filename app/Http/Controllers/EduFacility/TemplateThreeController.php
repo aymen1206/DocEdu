@@ -8,11 +8,11 @@ use PDF; // facade from barryvdh/laravel-dompdf
 use PhpOffice\PhpWord\PhpWord;
 use PhpOffice\PhpWord\IOFactory;
 
-class LetterController extends Controller
+class TemplateThreeController extends Controller
 {
     public function form()
     {
-        return view('edu-facility.letter.form'); // اختياري: نموذج يدخل المستخدم فيه النص
+        return view('edu-facility.tempThree.form'); // اختياري: نموذج يدخل المستخدم فيه النص
     }
 
     public function generate(Request $request)
@@ -23,7 +23,7 @@ class LetterController extends Controller
         ]);
 
         // ممكن إعادة توجيه لعرض المعاينة
-        return view('edu-facility.letter.preview', compact('data'));
+        return view('edu-facility.tempThree.preview', compact('data'));
     }
 
     public function downloadPdf(Request $request)
@@ -38,7 +38,7 @@ class LetterController extends Controller
        
         $Logo = auth()->guard('edu_facility')->user()->logo;
         $mang = auth()->guard('edu_facility')->user()->Manger_Name;
-        $html = view('edu-facility.letter.pdf', compact('data','Logo','mang'))->render();
+        $html = view('edu-facility.tempThree.pdf', compact('data','Logo','mang'))->render();
 
         $pdf = PDF::loadHTML($html);
         // ضبط اسم الملف
@@ -119,6 +119,6 @@ class LetterController extends Controller
         $Logo = auth()->guard('edu_facility')->user()->logo;
         $mang = auth()->guard('edu_facility')->user()->Manger_Name;
 
-        return view('edu-facility.letter.preview', compact('data','Logo','mang'));
+        return view('edu-facility.tempThree.preview', compact('data','Logo','mang'));
     }
 }

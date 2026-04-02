@@ -63,7 +63,12 @@ class HomeController extends Controller
         return view('edu-facility.abs.form', compact('schoolname', 'users'));
     }
     
-    
+     public function appreciation() {
+        
+        $schoolname=$this->facility->tenant->name;
+        $users=EduFacility::tenanting()->get();
+        return view('edu-facility.appreciation.prototypes', compact('schoolname', 'users'));
+    }
 
 
 }

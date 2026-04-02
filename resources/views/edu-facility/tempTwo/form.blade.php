@@ -24,7 +24,7 @@
         font-weight: 600;
         color: #334155;
     }
-    .letter-form-wrapper input[type="text"], input[type="date"],
+    .letter-form-wrapper input[type="text"],
     .letter-form-wrapper textarea {
         width: 100%;
         padding: 12px 14px;
@@ -74,7 +74,7 @@
 <main class="flex-1 overflow-y-auto p-6 bg-gray-100">
 <div class="mb-6">
     <div class="flex flex-col">
-        <h4 class="text-2xl font-semibold">@lang('lang.atencncNot')</h4>
+        <h4 class="text-2xl font-semibold">@lang('lang.CertAPPRECIA')</h4>
 
         <nav class="mt-2 text-sm text-gray-500">
             <ol class="flex gap-2">
@@ -85,8 +85,8 @@
                 </li>
                 <li>/</li>
                 <li>
-                    <a href="{{url('/edu-facility/AbsenceNotification')}}" class="text-blue-600 hover:underline">
-                        @lang('lang.atencncNot')
+                    <a href="{{url('/edu-facility/APPRECIATION')}}" class="text-blue-600 hover:underline">
+                        @lang('lang.CertAPPRECIA')
                     </a>
                 </li>
             </ol>
@@ -95,31 +95,27 @@
 </div>
 
 <div class="letter-form-wrapper">
-    <h2>نموذج إنشاء إشعار غياب </h2>
+    <h2> نموزج شهادة تقديرية </h2>
 
-    <form method="post" action="{{ route('edu-facility.abs.letter.pdf') }}" id="pdfForm">
+    <form method="post" action="{{ route('edu-facility.tempTwo.pdf') }}" id="pdfForm">
         @csrf
         <label>اسم الطالب</label>
-        <input id="letter_title" type="text" name="name" placeholder="اكتب اسم الطالب هنا" required>
-        <label>تاريخ الغياب </label>
-        <input id="letter_content"  type="date" name="apsdate" placeholder="اكتب تاريخ الغياب هنا" required>        
-        <input   type="text" name="schoolname" value="{{$schoolname}}" hidden>
+        <input id="letter_title" type="text" name="name" placeholder="اكتب اسم الطالب هنا">
         
+        <input   type="text" name="schoolname" value="{{$schoolname}}" hidden>
         <button type="submit" style="background:#2563eb;color:#fff;display:inline-block;opacity:1;visibility:visible;border:2px solid #1e40af;border-radius:10px;padding:12px 16px;min-width:180px;">تحميل PDF</button>
     </form>
 
-    <form method="post" action="{{ route('edu-facility.abs.letter.word') }}" style="margin-top: 16px;" onsubmit="document.getElementById('word_title').value=document.getElementById('letter_title').value;document.getElementById('word_content').value=document.getElementById('letter_content').value;">
+    <form method="post" action="{{ route('edu-facility.tempTwo.word') }}" style="margin-top: 16px;" onsubmit="document.getElementById('word_title').value=document.getElementById('letter_title').value;document.getElementById('word_content').value=document.getElementById('letter_content').value;">
         @csrf
         <input id="word_title" type="hidden" name="name" value="">
-            <input id="word_content" type="hidden" name="apsdate" value="">
         <input   type="text" name="schoolname" value="{{$schoolname}}" hidden>
         <button type="submit" style="background:#2563eb;color:#fff;display:inline-block;opacity:1;visibility:visible;border:2px solid #1e40af;border-radius:10px;padding:12px 16px;min-width:180px;">تحميل Word</button>
     </form>
     
-    <form method="post" action="{{ route('edu-facility.abs.letter.preview') }}" style="margin-top: 16px;" onsubmit="document.getElementById('review_title').value=document.getElementById('letter_title').value;document.getElementById('review_content').value=document.getElementById('letter_content').value;">
+    <form method="post" action="{{ route('edu-facility.tempTwo.preview') }}" style="margin-top: 16px;" onsubmit="document.getElementById('preview_title').value=document.getElementById('letter_title').value;document.getElementById('preview_content').value=document.getElementById('letter_content').value;">
         @csrf
-        <input id="review_title" type="hidden" name="name" value="">
-            <input id="review_content" type="hidden" name="apsdate" value="">
+        <input id="preview_title" type="hidden" name="name" value="">
         <input   type="text" name="schoolname" value="{{$schoolname}}" hidden>
         <button type="submit" style="background:#2563eb;color:#fff;display:inline-block;opacity:1;visibility:visible;border:2px solid #1e40af;border-radius:10px;padding:12px 16px;min-width:180px;">معاينة</button>
     </form>

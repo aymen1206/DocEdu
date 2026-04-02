@@ -80,12 +80,6 @@
     <!-- Vertical Separator -->
     <div class="h-6 w-px bg-[#E5E7EB] dark:bg-gray-700"></div>
     
-    @if(Request::getHost() == config('services.Central_HOST'))
-      <!-- Create Account Button -->
-      <a href="{{ route('rigisterStudent') }}" class="px-4 py-2 rounded-lg bg-[#1C1C1C] dark:bg-gray-800 dark:hover:bg-gray-700 text-white font-semibold text-sm hover:bg-[#2D2D2D] transition-all duration-300">
-        {{__('lang.signup')}}
-      </a>
-    @endif
      <!-- Login Button -->
     <!-- Login Button -->
     <a href="{{ url('/LoginStudent') }}" class="px-4 py-2 rounded-lg bg-white dark:bg-gray-800 border border-[#6B7280] dark:border-gray-700 text-[#6B7280] dark:text-gray-300 font-semibold text-sm hover:bg-[#F5F6FA] dark:hover:bg-gray-700 transition-all duration-300">
@@ -137,7 +131,6 @@
                               </a>
                           @endif
                       @endforeach
-                              <a href="{{ route('rigisterStudent') }}" class="block px-4 py-2 text-sm text-[#1C1C1C] dark:text-gray-200 hover:bg-[#F5F6FA] dark:hover:bg-gray-800 hover:rounded-lg transition-all duration-200">{{__('lang.signup')}}</a>
                               <a href="{{ url('/LoginStudent') }}" class="block px-4 py-2 text-sm text-[#1C1C1C] dark:text-gray-200 hover:bg-[#F5F6FA] dark:hover:bg-gray-800 hover:rounded-lg transition-all duration-200">{{__('lang.login')}}</a>      
                            
                               <a href="{{ url('student/profile') }}" class="block px-4 py-2 text-sm text-[#1C1C1C] dark:text-gray-200 hover:bg-[#F5F6FA] dark:hover:bg-gray-800 hover:rounded-lg transition-all duration-200">{{__('lang.profile')}}</a>

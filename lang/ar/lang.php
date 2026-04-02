@@ -775,4 +775,5 @@ return [
 'schoolId'=>'رقم المدرسة',
 'tenants'=>'المستفيدين',
 'Manger_Name'=>'اسم المدير',
+'CertAPPRECIA'=>'شهادة تقدير',
 ];

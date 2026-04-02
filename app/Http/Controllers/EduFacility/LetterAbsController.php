@@ -53,7 +53,9 @@ class LetterAbsController extends Controller
         $data = $request->validate([
             'name' => 'nullable|string',
             'schoolname' => 'nullable|string',
+            'apsdate' => 'nullable|string'
         ]);
+        
 
         $parentName = $data['name']  ;
         $content = trim($data['content'] ?? '');        
@@ -113,5 +115,18 @@ class LetterAbsController extends Controller
 
         $fileName = !empty($data['name']) ? \Illuminate\Support\Str::slug($data['name'], '-') : 'estid3a-wali-amr';
         return response()->download($tempFile, $fileName . '.docx')->deleteFileAfterSend(true);
+    }
+     public function preview(Request $request)
+    {
+        $data = $request->validate([
+            'name' => 'nullable|string',
+            'schoolname' => 'nullable|string',
+            'apsdate' => 'nullable|string'   
+        ]);
+         
+        $Logo = auth()->guard('edu_facility')->user()->logo;
+        $mang = auth()->guard('edu_facility')->user()->Manger_Name;
+
+        return view('edu-facility.abs.preview', compact('data','Logo','mang'));
     }
 }

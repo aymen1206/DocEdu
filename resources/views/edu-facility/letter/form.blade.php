@@ -100,7 +100,7 @@
     <form method="post" action="{{ route('edu-facility.letter.pdf') }}" id="pdfForm">
         @csrf
         <label>اسم الطالب</label>
-        <input id="letter_title" type="text" name="name" placeholder="اكتب عنوان الرسالة هنا">
+        <input id="letter_title" type="text" name="name" placeholder="اكتب اسم الطالب هنا">
         
         <input   type="text" name="schoolname" value="{{$schoolname}}" hidden>
         <button type="submit" style="background:#2563eb;color:#fff;display:inline-block;opacity:1;visibility:visible;border:2px solid #1e40af;border-radius:10px;padding:12px 16px;min-width:180px;">تحميل PDF</button>
@@ -111,6 +111,13 @@
         <input id="word_title" type="hidden" name="name" value="">
         <input   type="text" name="schoolname" value="{{$schoolname}}" hidden>
         <button type="submit" style="background:#2563eb;color:#fff;display:inline-block;opacity:1;visibility:visible;border:2px solid #1e40af;border-radius:10px;padding:12px 16px;min-width:180px;">تحميل Word</button>
+    </form>
+    
+    <form method="post" action="{{ route('edu-facility.letter.preview') }}" style="margin-top: 16px;" onsubmit="document.getElementById('word_title').value=document.getElementById('letter_title').value;document.getElementById('word_content').value=document.getElementById('letter_content').value;">
+        @csrf
+        <input id="word_title" type="hidden" name="name" value="">
+        <input   type="text" name="schoolname" value="{{$schoolname}}" hidden>
+        <button type="submit" style="background:#2563eb;color:#fff;display:inline-block;opacity:1;visibility:visible;border:2px solid #1e40af;border-radius:10px;padding:12px 16px;min-width:180px;">معاينة</button>
     </form>
 </div> 
 </main>

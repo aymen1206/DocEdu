@@ -1,18 +1,15 @@
 <!doctype html>
 @php
-    use ArPHP\I18N\Arabic;
-    $Arabic = new Arabic();
-    
         $schoolname =  $data['schoolname'];
         $apsdate =  $data['apsdate'];
-        $Schoolname = $Arabic->utf8Glyphs( $schoolname);
-        $title = $Arabic->utf8Glyphs('إشعار غياب');
-        $subtitle = $Arabic->utf8Glyphs('إلى ولي امر الطالب/ة : ' . $data['name']);
-        $date = $Arabic->utf8Glyphs('التاريخ: ' . \Carbon\Carbon::now()->format('Y/m/d'));
-        $closing = $Arabic->utf8Glyphs('مع خالص الشكر والتقدير،');
-        $signature = $Arabic->utf8Glyphs('إدارة'. $schoolname);        
+        $Schoolname =  $schoolname;
+        $title = 'إشعار غياب';
+        $subtitle = 'إلى ولي امر الطالب/ة : ' . $data['name'];
+        $date = 'التاريخ: ' . \Carbon\Carbon::now()->format('Y/m/d');
+        $closing = 'مع خالص الشكر والتقدير،';
+        $signature = 'إدارة'. $schoolname;        
         $parenta =  $data['name']  ;        
-        $parent = $Arabic->utf8Glyphs($parenta);
+        $parent =$parenta;
         $bodyP1 = "السلام عليكم ورحمة الله وبركاته،";    
         $bodyP2 = " نود إشعاركم بأن الطالب  / ";                        
         $bodyP3 = "قد تغيب عن المدرسة في يوم/ ";                   
@@ -21,14 +18,14 @@
         $bodyP6 = " بسبب الغياب في أقرب وقت ممكن وذلك حرصًا ";
         $bodyP7 = " على مستواه الدراسي.";           
         $Manname = "مدير المدرسة ".$mang;           
-        $bodyText1 = $Arabic->utf8Glyphs($bodyP1);        
-        $bodyText2 = $Arabic->utf8Glyphs($bodyP2);    
-        $bodyText3 = $Arabic->utf8Glyphs($bodyP3);  
-        $bodyText4 = $Arabic->utf8Glyphs($bodyP4);  
-        $bodyText5 = $Arabic->utf8Glyphs($bodyP5);
-        $bodyText6 = $Arabic->utf8Glyphs($bodyP6);
-        $bodyText7 = $Arabic->utf8Glyphs($bodyP7);
-        $Managname = $Arabic->utf8Glyphs($Manname);
+        $bodyText1 = $bodyP1;        
+        $bodyText2 = $bodyP2;    
+        $bodyText3 = $bodyP3;  
+        $bodyText4 = $bodyP4;  
+        $bodyText5 = $bodyP5;
+        $bodyText6 = $bodyP6;
+        $bodyText7 = $bodyP7;
+        $Managname = $Manname;
 
 @endphp 
 <head>
@@ -50,7 +47,7 @@
     <div class="header">
         
         <p>
-           <img src="{{ public_path($Logo) }}" width="50" height="50" >  
+           <img src="/$Logo" width="50" height="50" >  
         </p>
         <div class="school-name">{{$Schoolname}}</div>
         <div class="letter-title">{{$title}}</div>

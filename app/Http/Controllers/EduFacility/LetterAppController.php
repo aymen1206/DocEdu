@@ -8,14 +8,14 @@ use PDF; // facade from barryvdh/laravel-dompdf
 use PhpOffice\PhpWord\PhpWord;
 use PhpOffice\PhpWord\IOFactory;
 
-class LetterController extends Controller
+class LetterAppController extends Controller
 {
-    public function form()
+    public function appreciationForm()
     {
         return view('edu-facility.letter.form'); // اختياري: نموذج يدخل المستخدم فيه النص
     }
 
-    public function generate(Request $request)
+    public function generateAppreciation(Request $request)
     {
         // مثلاً نأخذ عنوان وخطاب ونريد بعض الكلام بولد
         $data = $request->validate([
@@ -26,7 +26,7 @@ class LetterController extends Controller
         return view('edu-facility.letter.preview', compact('data'));
     }
 
-    public function downloadPdf(Request $request)
+    public function downloadAppreciationWord(Request $request)
     {
         $data = $request->validate([
             'name' => 'nullable|string',
@@ -34,18 +34,14 @@ class LetterController extends Controller
         ]);
        
         // نستخدم Blade لعمل HTML ثم نحوله إلى PDF
-        
-       
-        $Logo = auth()->guard('edu_facility')->user()->logo;
-        $mang = auth()->guard('edu_facility')->user()->Manger_Name;
-        $html = view('edu-facility.letter.pdf', compact('data','Logo','mang'))->render();
+        $html = view('edu-facility.letter.pdf', compact('data'))->render();
 
         $pdf = PDF::loadHTML($html);
         // ضبط اسم الملف
         return $pdf->download(($data['name'] ?? 'letter') . '.pdf');
     }
 
-    public function downloadWord(Request $request)
+    public function downloadAppreciationPdf(Request $request)
     {
         $data = $request->validate([
             'name' => 'nullable|string',
@@ -107,18 +103,5 @@ class LetterController extends Controller
 
         $fileName = !empty($data['name']) ? \Illuminate\Support\Str::slug($data['name'], '-') : 'estid3a-wali-amr';
         return response()->download($tempFile, $fileName . '.docx')->deleteFileAfterSend(true);
-    }
-       public function preview(Request $request)
-    {
-        $data = $request->validate([
-            'name' => 'nullable|string',
-            'schoolname' => 'nullable|string',
-        ]);
-        
-       
-        $Logo = auth()->guard('edu_facility')->user()->logo;
-        $mang = auth()->guard('edu_facility')->user()->Manger_Name;
-
-        return view('edu-facility.letter.preview', compact('data','Logo','mang'));
     }
 }
