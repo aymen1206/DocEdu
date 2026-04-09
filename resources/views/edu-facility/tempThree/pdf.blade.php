@@ -9,8 +9,8 @@
         $contentp2=$Arabic->utf8Glyphs(' ان تتقدم بخالص الشكر والتقدير للطالب/ة  ');
 
         $contentp3 = $Arabic->utf8Glyphs('  على تفوقه/ها ');
-        $contentp4 = $Arabic->utf8Glyphs('الدراسي وسلوكه/ها المتميز لقد كان مثالاً يحتذى به في');
-        $contentp5 = $Arabic->utf8Glyphs(' الاجتهاد والالتزام مما ساهم في رفع مستوى المدرسة');
+        $contentp4 = $Arabic->utf8Glyphs('الدراسي وسلوكه/ها المتميز لقد كان مثالاً يحتذى به ');
+        $contentp5 = $Arabic->utf8Glyphs(' الاجتهاد والالتزام مما ساهم في رفع مستوى المدرسة في');
         $contentp6 = $Arabic->utf8Glyphs('وتحقيق نتائج مميزة  خلال العام الدراسي الحالي');
         $contentp7 = $Arabic->utf8Glyphs(' نتمنى له/ها دوام النجاح والتفوق ');
         $contentp8 = $Arabic->utf8Glyphs('في مسيرته/ها التعليمية والمستقبلية');
@@ -19,9 +19,9 @@
         $closing = $Arabic->utf8Glyphs('مع خالص الشكر والتقدير،');
         $signature = $Arabic->utf8Glyphs('إدارة'. $schoolname);                    
         $bodyText3 = $Arabic->utf8Glyphs("وتفضلوا بقبول فائق الاحترام والتقدير.");         
-        $Mannam =  $Arabic->utf8Glyphs( "مدير المدرسة " );
+        $Mannam =  $Arabic->utf8Glyphs( " المدير / " );
         $Manname =  $Arabic->utf8Glyphs($mang );
-        $FRAME = 'assets/Templates/1.jpg';
+        $FRAME = 'assets/Templates/3.jpg';
 @endphp
 <html lang="ar" dir="rtl">
 <head>
@@ -64,19 +64,19 @@
         .header { 
             text-align: center;
             position: absolute;
-            top: 30%;
-            right: 15%;
+            top: 38%;
+            right: 12%;
         }
         .content { 
-            font-size: 12px; 
+            font-size: 11px; 
             line-height: 1.8; 
-            padding: 0 5%;
+            padding: 0 15%;
             direction: rtl;
             unicode-bidi: plaintext; 
             text-align: center;
             margin: 0 auto;            
             position: absolute;
-            top: 40%;
+            top: 48%;
         }
         
         .school-name { font-size: 24px; font-weight: bold; color: #1f2937; }
@@ -87,7 +87,7 @@
             position: absolute;
             width: 100%;
             text-align: left;
-            left: 10%;
+            left: 15%;
             bottom: 35%;
         }
     </style>
@@ -102,19 +102,15 @@
         </div>
 
         <div class="content"> 
-               <p > {{$contentp3}} <strong>{{$student}}</strong> {{$contentp2}}<strong>{{$schoolname}}</strong>{{$content}} </p>
-                   
-                <p> {{$contentp5}} {{$contentp4}}</p>   
+                <p><strong>{{$student}}</strong> {{$contentp2}}<strong>{{$schoolname}}</strong>{{$content}} </p>                   
+                <p>{{$contentp5}} {{$contentp4}} {{$contentp3}}</p>   
                 <p>{{$contentp7}} {{$contentp6}}</p>   
           
-                <p> {{$contentp8}}</p>        
            
-               <p style="margin-top: 30px;">{{$closing}}</p>
         </div>
 
         <div class="signature">
-            <p>{{$Mannam}}</p>
-            <p>{{$Manname}}</p>
+            <p>{{$Manname}}{{$Mannam}}</p>
         </div>
     </div>
 </div>

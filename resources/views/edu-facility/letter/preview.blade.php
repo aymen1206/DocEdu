@@ -49,11 +49,11 @@
 
     <div  >
          
-        <p>{{$subtitle}}</p>
+        <p>{{$subtitle}}  </p>
         <p>{{$date}}</p>
         <p>{{$bodyText1}}</p>
-        <p style="text-align:right"><strong>{{$parent}}</strong> {{$bodyText2b}} {{$bodyText2a}}</p>       
-        <label>{{$bodyText2d}} {{$bodyText2c}} {{$bodyText2e}} </label>
+        <p style="text-align:right"> {{$bodyText2a}} {{$bodyText2b}}<strong>{{$parent}}</strong></p>       
+        <label>{{$bodyText2e}} {{$bodyText2c}} {{$bodyText2d}}  </label>
         <p>{{$bodyText3}}</p>
     </div>
 

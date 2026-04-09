@@ -7,7 +7,7 @@
         $subtitle = 'إلى ولي امر الطالب/ة : ' . $data['name'];
         $date = 'التاريخ: ' . \Carbon\Carbon::now()->format('Y/m/d');
         $closing = 'مع خالص الشكر والتقدير،';
-        $signature = 'إدارة'. $schoolname;        
+        $signature = 'إدارة '. $schoolname;        
         $parenta =  $data['name']  ;        
         $parent =$parenta;
         $bodyP1 = "السلام عليكم ورحمة الله وبركاته،";    
@@ -47,7 +47,7 @@
     <div class="header">
         
         <p>
-           <img src="/$Logo" width="50" height="50" >  
+           <img src="/{{$Logo}}" width="80" height="80" >  
         </p>
         <div class="school-name">{{$Schoolname}}</div>
         <div class="letter-title">{{$title}}</div>
@@ -58,10 +58,10 @@
         <p>{{$subtitle}}</p>
         <p>{{$date}}</p>
         <p>{{$bodyText1}}</p>
-        <p> <strong>{{$parent}}</strong> {{$bodyText2}}</p>
-        <p><strong>{{$apsdate}}</strong>{{$bodyText3}}</p>
-        <p> {{$bodyText5}} , {{$bodyText4}}</p>
-        <p>  {{$bodyText7}} {{$bodyText6}}</p>
+        <p>{{$bodyText2}}<strong>{{$parent}}</strong></p>
+        <p>{{$bodyText3}}<strong>{{$apsdate}}</strong></p>
+        <p> {{$bodyText4}} , {{$bodyText5}}</p>
+        <p>  {{$bodyText6}} {{$bodyText7}}</p>
     </div>
 
     <div class="signature">
