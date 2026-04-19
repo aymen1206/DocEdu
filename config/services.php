@@ -27,7 +27,7 @@ return [
         'key' => env('TINIFY_API_KEY'),
     ],
     
-    'Central_HOST' => env('DB_HOST'),
+    'Central_HOST' => env('APP_HOST'),
  
         'resend' => [
         'key' => env('RESEND_KEY'),

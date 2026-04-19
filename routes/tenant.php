@@ -17,7 +17,6 @@ use Stancl\Tenancy\Middleware\PreventAccessFromCentralDomains;
 | Feel free to customize them however you want. Good luck!
 |
 */
-
 Route::middleware([
     'web',
     InitializeTenancyBySubdomain::class,
@@ -33,3 +32,4 @@ Route::middleware([
         Route::post('registerTenant', 'App\Http\Controllers\GeneralLoginController@registerTenant')->name('registerTenant');
         });  
 });
+

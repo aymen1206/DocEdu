@@ -28,7 +28,7 @@ class AppServiceProvider extends ServiceProvider
         if (request()->getHost() === 'DocEdu.com') {
             URL::forceScheme('https');
         }
-          //URL::forceScheme('https');
+          URL::forceScheme('https');
        
     }
 }
