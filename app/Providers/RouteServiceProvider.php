@@ -40,12 +40,12 @@ class RouteServiceProvider extends ServiceProvider
         $this->routes(function () {
 
               // Central routes
-	        Route::domain('edorasa.com')
-        	    ->middleware('web')
-            		->group(base_path('routes/web.php'));
+        Route::domain('teams.test')
+            ->middleware('web')
+            ->group(base_path('routes/web.php'));
 
-//         Tenant routes (subdomains only)
-       Route::domain('{tenant}.edorasa.com')
+        // Tenant routes (subdomains only)
+        Route::domain('{tenant}.teams.test')
             ->middleware([
                 'web',
                 \Stancl\Tenancy\Middleware\InitializeTenancyBySubdomain::class,
@@ -59,9 +59,6 @@ class RouteServiceProvider extends ServiceProvider
                 ->group(base_path('routes/edu-facility.php'));
 
         });
-// 	Route::middleware('healthy')
-  //              ->group(base_path('routes/healthy.php'));
-
     }
 
     /**
