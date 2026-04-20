@@ -25,10 +25,9 @@ class AppServiceProvider extends ServiceProvider
         Paginator::useTailwind(); 
         Paginator::useBootstrap(); 
         \Tinify\setKey(config('services.tinify.key'));
-        if (request()->getHost() === 'DocEdu.com') {
+        if (request()->getHost() === 'teams.test') {
             URL::forceScheme('https');
         }
-          URL::forceScheme('https');
        
     }
 }

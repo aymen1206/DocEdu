@@ -40,12 +40,12 @@ class RouteServiceProvider extends ServiceProvider
         $this->routes(function () {
 
               // Central routes
-        Route::domain('teams.test')
+        Route::domain( env('APP_HOST'))
             ->middleware('web')
             ->group(base_path('routes/web.php'));
 
         // Tenant routes (subdomains only)
-        Route::domain('{tenant}.teams.test')
+        Route::domain('{tenant}.'.env('APP_HOST'))
             ->middleware([
                 'web',
                 \Stancl\Tenancy\Middleware\InitializeTenancyBySubdomain::class,

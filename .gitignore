@@ -22,5 +22,3 @@ yarn-error.log
 /.vscode
 /.zed
 /public
-/app/Providrs/RouteServiceProvider.php
-/config/tenancy.php
