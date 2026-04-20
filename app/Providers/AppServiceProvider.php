@@ -25,7 +25,7 @@ class AppServiceProvider extends ServiceProvider
         Paginator::useTailwind(); 
         Paginator::useBootstrap(); 
         \Tinify\setKey(config('services.tinify.key'));
-        if (request()->getHost() === 'edorasa.com') {
+        if (str_contains(request()->getHost(), 'edorasa.com')) {
             URL::forceScheme('https');
         }
        
